@@ -51,9 +51,11 @@ int main(int argc, char *argv[])
 
 	GtkWidget *win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-	GtkEntryBuffer *buffer = gtk_entry_buffer_new(NULL, -1);
+	//GtkEntryBuffer *buffer = gtk_entry_buffer_new(NULL, -1);
 	GtkWidget *vbox = gtk_vbox_new(FALSE, 6);
-	GtkWidget *entry = gtk_entry_new_with_buffer(buffer);
+	//GtkWidget *entry = gtk_entry_new_with_buffer(buffer);
+	GtkWidget *entry = search_box_create();
+
 	GtkWidget *scrollwin = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrollwin), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	GtkWidget *view = search_view_create();
@@ -65,7 +67,7 @@ int main(int argc, char *argv[])
 
 	gtk_container_add(GTK_CONTAINER(win), vbox);
 
-	g_signal_connect(buffer, "inserted-text", G_CALLBACK(text_changed_cb), NULL);
+	//g_signal_connect(buffer, "inserted-text", G_CALLBACK(text_changed_cb), NULL);
 	g_signal_connect(win, "destroy", G_CALLBACK(win_quit), NULL);
 
 	gtk_widget_show_all(win);

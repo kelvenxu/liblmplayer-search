@@ -9,7 +9,8 @@ headers = \
 	pinyin.h \
 	small-search.h \
 	type.h \
-	view.h
+	view.h\
+	search-box.h
 
 sources = \
 	search-library.c\
@@ -17,7 +18,8 @@ sources = \
 	pinyin.c\
 	view.c\
 	small-search.c \
-	monitor.c
+	monitor.c\
+	search-box.c
 
 search_SOURCES = main.c 
 
