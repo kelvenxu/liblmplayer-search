@@ -24,6 +24,7 @@
 
 #include "type.h"
 #include "search-box.h"
+#include <string.h>
 
 int 
 query_callback(void *noused, int ncols, char** value, char** name)

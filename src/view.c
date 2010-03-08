@@ -36,6 +36,8 @@ void
 //search_view_clear(GtkWidget *view)
 search_view_clear()
 {
+	g_return_if_fail(view && GTK_IS_TREE_VIEW(view));
+
 	GtkListStore *liststore = (GtkListStore *)gtk_tree_view_get_model(GTK_TREE_VIEW(view));
 	gtk_list_store_clear(liststore);
 }
@@ -46,6 +48,8 @@ search_view_insert(FileInformation *fileinfo)
 {
 	static GtkListStore *liststore;
 	GtkTreeIter iter;
+
+	g_return_if_fail(view && GTK_IS_TREE_VIEW(view));
 
 	if(!fileinfo)
 		return;
