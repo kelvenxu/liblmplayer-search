@@ -135,7 +135,7 @@ small_search_step()
 	return TRUE;
 }
 
-static void
+void
 small_search_start_loop(const char *root)
 {
 	loop = g_main_loop_new(NULL, FALSE);
