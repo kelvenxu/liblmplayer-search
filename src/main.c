@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 
 	gtk_widget_show_all(win);
 
-	search_library_init("library.db", "/home/kelvenxu/音乐");
+	search_library_init("/home/kelvenxu/.lmplayer/media.database", "/home/kelvenxu/音乐");
 	gtk_main();
 
 	printf("after gtk_main_quit\n");

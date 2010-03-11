@@ -7,6 +7,7 @@
 #include "type.h"
 #include "view.h"
 #include "small-search.h"
+#include "search-box.h"
 
 void search_library_init(const char *db, const char *root);
 void search_library_quit();

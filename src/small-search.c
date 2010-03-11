@@ -13,7 +13,7 @@ static const char * pop_path();
 static GDir * start_new_path();
 static void analysis_file(const char *file);
 static gboolean small_search_step();
-static void small_search_start_loop(const char *root);
+//static void small_search_start_loop(const char *root);
 
 static void
 push_path(const char *path)

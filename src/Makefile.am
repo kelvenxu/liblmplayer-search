@@ -1,4 +1,4 @@
-bin_PROGRAMS = search search-library-deamon
+bin_PROGRAMS = search search-library-daemon search-library-test
 
 lib_LTLIBRARIES = libsearchlibrary.la
 
@@ -25,10 +25,13 @@ search_SOURCES = main.c
 search_LDADD = $(PACKAGE_LIBS) $(top_builddir)/src/libsearchlibrary.la
 search_CPPFLAGS = -I$(top_builddir) $(PACKAGE_CFLAGS)
 
-search_library_deamon_SOURCES = deamon-main.c
-search_library_deamon_LDADD = $(PACKAGE_LIBS) $(top_builddir)/src/libsearchlibrary.la
-search_library_deamon_CPPFLAGS = I$(top_builddir) $(PACKAGE_CFLAGS)
+search_library_daemon_SOURCES = daemon-main.c
+search_library_daemon_LDADD = $(PACKAGE_LIBS) $(top_builddir)/src/libsearchlibrary.la
+search_library_daemon_CPPFLAGS = -I$(top_builddir) $(PACKAGE_CFLAGS)
 
+search_library_test_SOURCES = test-main.c
+search_library_test_LDADD = $(PACKAGE_LIBS) $(top_builddir)/src/libsearchlibrary.la
+search_library_test_CPPFLAGS = -I$(top_builddir) $(PACKAGE_CFLAGS)
 
 libsearchlibrary_la_SOURCES = $(sources) $(headers)
 libsearchlibrary_la_LIBADD = $(PACKAGE_LIBS)

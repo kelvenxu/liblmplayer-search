@@ -36,6 +36,7 @@
 
 int main(int argc,char *argv[])
 {
+#if 1
     int childpid; 
 		int fd; 
 		int fdtablesize;
@@ -74,13 +75,9 @@ int main(int argc,char *argv[])
 
     umask(0);
     signal(SIGCHLD,SIG_IGN);
+#endif
 		
-    while (1)
-    {
-        syslog(LOG_USER|LOG_INFO,"当前: %s\n",getenv("HOME"));
-
-        sleep(30);
-    }
+		monitor_daemon(NULL);
 
     return 0;
 }

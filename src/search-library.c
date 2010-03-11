@@ -8,15 +8,14 @@ search_library_init(const char *db, const char *root)
 
 	db_open(db);
 
-	small_search_start(root);
-
-	monitor_demo_setup("/home/kelvenxu/音乐");
+	//small_search_start(root);
+	//monitor_demo_setup("/home/kelvenxu/音乐");
 }
 
 void
 search_library_quit()
 {
-	small_search_stop();
+	//small_search_stop();
 	db_close();
 }
 
