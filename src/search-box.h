@@ -2,7 +2,7 @@
 /*
  * search-box.h
  *
- * This file is part of ________.
+ * This file is part of liblmplayer-search
  *
  * Copyright (C) 2010 - kelvenxu <kelvenxu@gmail.com>.
  *
@@ -26,7 +26,39 @@
 #define __SEARCH_BOX_H__  1
 
 #include <gtk/gtk.h>
+#include <glib-object.h>
 
-GtkWidget * search_box_create();
+G_BEGIN_DECLS
 
+#define LMPLAYER_SEARCH_BOX_TYPE (lmplayer_search_box_get_type())
+#define LMPLAYER_SEARCH_BOX(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), LMPLAYER_SEARCH_BOX_TYPE, LmplayerSearchBox))
+#define LMPLAYER_SEARCH_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass), LMPLAYER_SEARCH_BOX_TYPE, LmplayerSearchBoxClass))
+#define LMPLAYER_IS_SEARCH_BOX(obj) (G_TYPE_CHECK_INSTANCE_TYPE((obj), LMPLAYER_SEARCH_BOX_TYPE))
+#define LMPLAYER_IS_SEARCH_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE((klass), LMPLAYER_SEARCH_BOX_TYPE))
+#define LMPLAYER_SEARCH_BOX_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), LMPLAYER_SEARCH_BOX_TYPE, LmplayerSearchBoxClass))
+
+typedef struct _LmplayerSearchBoxPrivate LmplayerSearchBoxPrivate;
+
+typedef struct 
+{
+	GtkEntry parent;
+
+	LmplayerSearchBoxPrivate *priv;
+} LmplayerSearchBox;
+
+typedef struct
+{
+	GtkEntryClass parent;
+
+	/* Action signals
+	 */
+	void (* activated) (LmplayerSearchBox *box);
+
+} LmplayerSearchBoxClass;
+
+
+//GtkWidget * search_box_create();
+GtkWidget * lmplayer_search_box_new();
+
+G_END_DECLS
 #endif /*__SEARCH_BOX_H__ */

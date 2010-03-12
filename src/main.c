@@ -44,6 +44,12 @@ win_quit(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 	search_library_quit();
 }
 
+static void
+entry_activated_cb(LmplayerSearchBox *box, gpointer user_data)
+{
+	printf("lmplayer search box activated\n");
+}
+
 int main(int argc, char *argv[])
 {
 	gtk_init(&argc, &argv);
@@ -54,7 +60,8 @@ int main(int argc, char *argv[])
 	//GtkEntryBuffer *buffer = gtk_entry_buffer_new(NULL, -1);
 	GtkWidget *vbox = gtk_vbox_new(FALSE, 6);
 	//GtkWidget *entry = gtk_entry_new_with_buffer(buffer);
-	GtkWidget *entry = search_box_create();
+	GtkWidget *entry = lmplayer_search_box_new();
+	g_signal_connect(entry, "activated", G_CALLBACK(entry_activated_cb), NULL);
 
 	GtkWidget *scrollwin = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrollwin), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
