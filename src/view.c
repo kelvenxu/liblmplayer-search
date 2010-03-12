@@ -22,7 +22,7 @@ search_view_create()
 	gtk_tree_view_column_pack_start(col, renderer, TRUE);
 	gtk_tree_view_column_add_attribute(col, renderer, "text", 0);
 
-	liststore = gtk_list_store_new(1, G_TYPE_STRING);
+	liststore = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
 
 	gtk_tree_view_set_model(GTK_TREE_VIEW(view), GTK_TREE_MODEL(liststore));
 
@@ -64,6 +64,7 @@ search_view_insert(FileInformation *fileinfo)
 
 	gtk_list_store_set(liststore, &iter, 
 			0, fileinfo->name,
+			1, fileinfo->location,
 			-1);
 }
 
