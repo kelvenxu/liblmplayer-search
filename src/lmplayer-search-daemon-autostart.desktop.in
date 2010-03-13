@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=lmplayer-search-daemon
+_Name=Lmplayer Search Daemon
+_Comment=Lmplayer search daemon
+Terminal=false
+Type=Application
+StartupNotify=false
+X-KDE-autostart-phase=2
+X-KDE-autostart-after=panel
+

@@ -6,7 +6,7 @@ AM_INIT_AUTOMAKE(libsearchlibrary, 1.0.0)
 
 AM_MAINTAINER_MODE
 
-#AC_PROG_INTLTOOL([0.21])
+AC_PROG_INTLTOOL([0.21])
 
 AC_PROG_CC
 AM_PROG_CC_C_O
@@ -46,4 +46,5 @@ AC_OUTPUT([
 Makefile
 src/Makefile
 libsearchlibrary.pc
+po/Makefile.in
 ])

@@ -4,7 +4,6 @@
 *.so
 *.pc
 *.desktop
-*.desktop.in
 *.o
 *.lo
 *.a
