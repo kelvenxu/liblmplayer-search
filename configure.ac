@@ -24,6 +24,7 @@ PKG_CHECK_MODULES(PACKAGE, gtk+-2.0 >= $GTK_REQUIRED
 									glib-2.0 >= $GLIB_REQUIRED 
 									gio-2.0 >= $GIO_REQUIRED 
 									gthread-2.0 >= $GTHREAD_REQUIRED 
+									gconf-2.0
 									sqlite3)
 
 AC_SUBST(PACKAGE_CFLAGS)

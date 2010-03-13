@@ -3,6 +3,7 @@
 #include "pinyin.h"
 #include <glib.h>
 #include <gio/gio.h>
+#include <gconf/gconf-client.h>
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
@@ -320,6 +321,7 @@ monitor_database_open()
 	return ret;
 }
 
+#if 0
 static char *
 monitor_get_path()
 {
@@ -351,6 +353,7 @@ monitor_get_path()
 
 	return path;
 }
+#endif
 
 int
 monitor_daemon(const char *logfile)
@@ -392,8 +395,14 @@ monitor_daemon(const char *logfile)
 	signal(SIGTERM, monitor_daemon_terminate);
 	signal(SIGINT, monitor_daemon_terminate);
 
-	//gchar *root = g_build_path(G_DIR_SEPARATOR_S, getenv("HOME"), "音乐", NULL);
-	gchar *root = monitor_get_path();
+	GConfClient *gc = gconf_client_get_default();
+	if(!gc)
+	{
+		exit(-1);
+	}
+
+	gchar *root = gconf_client_get_string(gc, GCONF_PREFIX"/library_path", NULL);
+
 	if(root)
 	{
 		setup_monitor(root);
