@@ -126,6 +126,7 @@ do_query(const char *str, LmplayerSearchBox *box)
 	// FIXME: 当至少有两个字符时，才进行搜索
 	if(str && strlen(str) >= 2) 
 	{
+		search_view_clear();
 		db_query(str, query_callback, NULL);
 		g_signal_emit(box, signals[ACTIVATED], 0);
 	}
@@ -137,7 +138,6 @@ text_changed_cb(GtkEntryBuffer *entrybuffer, guint arg1, gchar *arg2, guint arg3
 	const char *str = gtk_entry_buffer_get_text(entrybuffer);
 	if(str && strlen(str) >= 3)
 	{
-		search_view_clear();
 		do_query(str, box);
 	}
 }
