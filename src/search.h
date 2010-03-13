@@ -2,7 +2,7 @@
 /*
  * search.h
  *
- * This file is part of ________.
+ * This file is part of liblmplayer-search.
  *
  * Copyright (C) 2010 - kelvenxu <kelvenxu@gmail.com>.
  *
@@ -26,6 +26,8 @@
 #define __SEARCH_H__  1
 
 
-int traversal_path(const char *root);
+//int traversal_path(const char *root);
+//int lmplayer_search_path(const char *root);
+int lmplayer_search_index(const char *root);
 
 #endif /*__SEARCH_H__ */

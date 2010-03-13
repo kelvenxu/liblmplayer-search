@@ -12,6 +12,7 @@ headers = \
 	monitor.h \
 	pinyin.h \
 	small-search.h \
+	search.h\
 	type.h \
 	view.h\
 	search-box.h
@@ -22,6 +23,7 @@ sources = \
 	pinyin.c\
 	view.c\
 	small-search.c \
+	search.c \
 	monitor.c\
 	search-box.c
 
