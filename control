@@ -8,14 +8,14 @@ Homepage: http://www.lmplayer.org
 
 Package: liblmplayer-search-dev
 Section: libdevel
-Architecture: any
-Depends: liblmplayer-search (>= 0.10.0), libgtk2.0-0 (>= 2.10.0), libglib2.0-0 (>= 2.12.0), sqlite3
+Architecture: i386
+Depends: liblmplayer-search (= 0.10.0-1), libgtk2.0-dev (>= 2.10.0), libglib2.0-dev (>= 2.12.0), gconf2, sqlite3
 Description: lmplayer search library
 	lmplayer search library, develop files.
 
 Package: liblmplayer-search
 Section: libs
-Architecture: any
-Depends: libgtk2.0-0 (>= 2.10.0), libglib2.0-0 (>= 2.12.0), gconf-2.0, sqlite3
+Architecture: i386
+Depends: libgtk2.0-0 (>= 2.10.0), libglib2.0-0 (>= 2.12.0), gconf2, sqlite3
 Description: lmplayer search library
 	lmplayer search library.

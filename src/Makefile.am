@@ -1,9 +1,9 @@
-autostartdir = $(sysconfdir)/xdg/autostart
-autostart_in_files = lmplayer-search-daemon-autostart.desktop.in
-autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+#autostartdir = $(sysconfdir)/xdg/autostart
+#autostart_in_files = lmplayer-search-daemon-autostart.desktop.in
+#autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
+##@INTLTOOL_DESKTOP_RULE@
 
-bin_PROGRAMS = search lmplayer-search-daemon search-library-test
+noinst_PROGRAMS = search lmplayer-search-daemon search-library-test
 lib_LTLIBRARIES = liblmplayer-search.la
 
 headers = \
@@ -43,8 +43,8 @@ liblmplayer_search_la_SOURCES = $(sources) $(headers)
 liblmplayer_search_la_LIBADD = $(PACKAGE_LIBS)
 liblmplayer_search_la_CPPFLAGS = -I$(top_builddir) $(PACKAGE_CFLAGS) -DGCONF_PREFIX="\"/apps/lmplayer\""
 
-liblmplayer_searchincdir = $(includedir)/liblmplayer-search
-liblmplayer_searchinc_HEADERS = $(headers)
+liblmplayer_searchincludedir = $(pkgincludedir)/liblmplayer-search
+liblmplayer_searchinclude_HEADERS = $(headers)
 
 EXTRA_DIST = \
 	$(autostart_DATA)
