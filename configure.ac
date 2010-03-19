@@ -1,12 +1,28 @@
-AC_INIT(src/main.c)
+AC_PREREQ(2.52)
+
+m4_define(lmplayer_version_major, 0)
+m4_define(lmplayer_version_minor, 10)
+m4_define(lmplayer_version_micro, 0)
+
+AC_INIT([liblmplayer-search],
+        [lmplayer_version_major.lmplayer_version_minor.lmplayer_version_micro],
+        [http://www.lmplayer.org])
 
 AM_CONFIG_HEADER(config.h)
 
-AM_INIT_AUTOMAKE(libsearchlibrary, 1.0.0)
+AC_CONFIG_SRCDIR([src/main.c])
+AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news subdir-objects])
 
 AM_MAINTAINER_MODE
 
 AC_PROG_INTLTOOL([0.21])
+
+LIBLMPLAYER_SEARCH_VERSION_MAJOR=lmplayer_version_major
+LIBLMPLAYER_SEARCH_VERSION_MINOR=lmplayer_version_minor
+LIBLMPLAYER_SEARCH_VERSION_MICRO=lmplayer_version_micro
+AC_SUBST(LIBLMPLAYER_SEARCH_VERSION_MAJOR)
+AC_SUBST(LIBLMPLAYER_SEARCH_VERSION_MINOR)
+AC_SUBST(LIBLMPLAYER_SEARCH_VERSION_MICRO)
 
 AC_PROG_CC
 AM_PROG_CC_C_O
@@ -32,10 +48,12 @@ AC_SUBST(PACKAGE_LIBS)
 
 #ALL_LINGUAS="zh_CN"
 
-#GETTEXT_PACKAGE=gtk-fx-1.0
-#AC_SUBST(GETTEXT_PACKAGE)
-#AM_GLIB_GNU_GETTEXT
-#AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", "definition of GETTEXT_PACKAGE")
+GETTEXT_PACKAGE=liblmplayer-search
+AC_SUBST(GETTEXT_PACKAGE)
+AM_GLIB_GNU_GETTEXT
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", "definition of GETTEXT_PACKAGE")
+
+GNOME_DOC_INIT
 
 AC_SUBST(CFLAGS)
 AC_SUBST(CXXFLAGS)
@@ -45,6 +63,6 @@ AC_SUBST(LDFLAGS)
 AC_OUTPUT([
 Makefile
 src/Makefile
-libsearchlibrary.pc
+liblmplayer-search.pc
 po/Makefile.in
 ])

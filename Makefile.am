@@ -1,8 +1,8 @@
-SUBDIRS = src
+SUBDIRS = src po
 
-pcdata_DATA = libsearchlibrary.pc
+pcdata_DATA = liblmplayer-search.pc
 pcdatadir = $(libdir)/pkgconfig
 
 EXTRA_DIST = \
-						 autogeh.sh\
-						 libsearchlibrary.pc.in
+						 autogen.sh\
+						 liblmplayer-search.pc.in
