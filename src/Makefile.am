@@ -43,8 +43,7 @@ liblmplayer_search_la_SOURCES = $(sources) $(headers)
 liblmplayer_search_la_LIBADD = $(PACKAGE_LIBS)
 liblmplayer_search_la_CPPFLAGS = -I$(top_builddir) $(PACKAGE_CFLAGS) -DGCONF_PREFIX="\"/apps/lmplayer\""
 
-liblmplayer_searchincludedir = $(pkgincludedir)/liblmplayer-search
+liblmplayer_searchincludedir = $(pkgincludedir)
 liblmplayer_searchinclude_HEADERS = $(headers)
 
-EXTRA_DIST = \
-	$(autostart_DATA)
+EXTRA_DIST =  $(autostart_DATA)

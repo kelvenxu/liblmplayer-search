@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: liblmplayer-search
+Description: Search local media library.
+Version: @VERSION@
+Libs: -L${libdir} -llmplayer-search -lm @PACKAGE_LIBS@
+Cflags: -I${includedir}/liblmplayer-search @PACKAGE_CFLAGS@
+
+
