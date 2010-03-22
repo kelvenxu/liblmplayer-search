@@ -4,7 +4,7 @@ Maintainer: kelvenxu <kelvenxu@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev
 Standards-Version: 3.8.1
 Section: libs
-Homepage: http://www.lmplayer.org
+Homepage: http://www.lmplayer.com
 
 Package: liblmplayer-search-dev
 Section: libdevel
