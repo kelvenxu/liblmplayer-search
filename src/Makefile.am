@@ -55,4 +55,7 @@ liblmplayer_search_la_LIBADD = $(PACKAGE_LIBS)
 liblmplayer_searchincludedir = $(pkgincludedir)
 liblmplayer_searchinclude_HEADERS = $(headers)
 
-EXTRA_DIST =  $(autostart_DATA)
+EXTRA_DIST =  $(autostart_DATA)\
+							main.c \
+							daemon-main.c \
+							test-main.c
