@@ -6,6 +6,24 @@
 static sqlite3 *handle;
 static char* table_name = "files";
 
+static gboolean
+db_table_exist()
+{
+	int ret;
+	char *err;
+	char *cmd;
+
+#if 1
+	// 判断表是否存在
+	cmd = g_strdup_printf("select * from sqlite_master where type = 'table' and name = '%s'", table_name);
+	ret = sqlite3_exec(handle, cmd, NULL, NULL, &err);
+	g_free(cmd);
+
+	if(ret == SQLITE_OK && err == NULL)
+		return 0;
+#endif
+}
+
 int
 db_open(const char *filename)
 {
@@ -26,7 +44,7 @@ db_open(const char *filename)
 #endif
 
 	// 如果表不存在，就先创建表
-	cmd = g_strdup_printf("create table %s (name TEXT, pinyin TEXT, type TEXT, artist TEXT, special TEXT, rank TEXT, location TEXT)", table_name);
+	cmd = g_strdup_printf("create table %s (name TEXT, pinyin TEXT, type TEXT, artist TEXT, special TEXT, rank TEXT, location TEXT not null primary key)", table_name);
 
 	ret = sqlite3_exec(handle, cmd, NULL, NULL, &err);
 	g_free(cmd);
