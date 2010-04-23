@@ -15,13 +15,13 @@ AC_PREREQ(2.52)
 # 设置binary_age和interface_age为0.
 #
 m4_define(lmplayer_version_major, 0)
-m4_define(lmplayer_version_minor, 10)
+m4_define(lmplayer_version_minor, 12)
 m4_define(lmplayer_version_micro, 0)
 m4_define(liblmplayer_search_interface_age, 0)
 
 AC_INIT([liblmplayer-search],
         [lmplayer_version_major.lmplayer_version_minor.lmplayer_version_micro],
-        [http://www.lmplayer.org])
+        [http://www.lmplayer.com])
 
 AM_CONFIG_HEADER(config.h)
 

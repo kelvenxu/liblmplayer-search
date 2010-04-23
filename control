@@ -4,18 +4,18 @@ Maintainer: kelvenxu <kelvenxu@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev
 Standards-Version: 3.8.1
 Section: libs
-Homepage: http://www.lmplayer.com
+Homepage: http://www.lmplayer.com/
 
 Package: liblmplayer-search-dev
 Section: libdevel
 Architecture: i386
-Depends: liblmplayer-search (= 0.10.0-1), libgtk2.0-dev (>= 2.10.0), libglib2.0-dev (>= 2.12.0), gconf2, sqlite3
+Depends: liblmplayer-search1 (= 0.12.0-1), libgtk2.0-dev (>= 2.10.0), libglib2.0-dev (>= 2.12.0), gconf2, sqlite3
 Description: lmplayer search library
-	lmplayer search library, develop files.
+	lmplayer search library, develop package.
 
-Package: liblmplayer-search
+Package: liblmplayer-search1
 Section: libs
 Architecture: i386
 Depends: libgtk2.0-0 (>= 2.10.0), libglib2.0-0 (>= 2.12.0), gconf2, sqlite3
 Description: lmplayer search library
-	lmplayer search library.
+	lmplayer search library runtime package.
