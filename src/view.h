@@ -7,6 +7,6 @@
 
 GtkWidget * search_view_create();
 void search_view_clear();
-void search_view_insert(FileInformation *fileinfo);
+void search_view_insert(LmplayerDatabaseItem *item);
 
 #endif /*__VIEW_H__ */

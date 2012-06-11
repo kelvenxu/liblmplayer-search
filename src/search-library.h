@@ -1,7 +1,7 @@
 #ifndef __SEARCH_LIBRARY_H__
 #define __SEARCH_LIBRARY_H__  1
 
-#include "database.h"
+#include "lmplayer-database.h"
 #include "monitor.h"
 #include "pinyin.h"
 #include "type.h"

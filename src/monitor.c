@@ -1,5 +1,5 @@
 #include "monitor.h"
-#include "database.h"
+#include "lmplayer-database.h"
 #include "pinyin.h"
 #include <glib.h>
 #include <gio/gio.h>
@@ -29,6 +29,7 @@ const int mask = IN_CREATE | IN_DELETE | IN_DELETE_SELF | IN_MOVED_FROM | IN_MOV
 static int handle;
 static GHashTable *watch_table;
 static FILE *fp = NULL;
+static LmplayerDatabase *dbobj = NULL;
 
 //struct wd_name wd_array[WD_NUM];
 
@@ -192,13 +193,14 @@ file_create(struct inotify_event *event)
 
 	gchar *fullpath = g_build_filename(node->path, filename, NULL);
 
-	FileInformation fileinfo;
+	//FileInformation fileinfo;
+	LmplayerDatabaseItem fileinfo;
 	fileinfo.name = filename;
 	fileinfo.pinyin = utf8_to_pinyin(filename);
 	fileinfo.location = fullpath;
 
 	syslog(LOG_USER|LOG_INFO,"db_insert: %s\n", filename);
-	db_insert(&fileinfo);
+	db_insert(dbobj, &fileinfo);
 
 	g_free(fullpath);
 }
@@ -218,13 +220,14 @@ file_delete(struct inotify_event *event)
 
 	gchar *fullpath = g_build_filename(node->path, filename, NULL);
 
-	FileInformation fileinfo;
+	//FileInformation fileinfo;
+  LmplayerDatabaseItem fileinfo;
 	fileinfo.name = filename;
 	fileinfo.pinyin = utf8_to_pinyin(filename);
 	fileinfo.location = fullpath;
 
 	syslog(LOG_USER|LOG_INFO,"db_delete: %s\n", filename);
-	db_delete(&fileinfo);
+	lmplayer_database_delete(dbobj, &fileinfo);
 	
 	g_free(fullpath);
 }
@@ -282,7 +285,7 @@ monitor_daemon_terminate(int signo)
 	g_hash_table_remove_all(watch_table);
 	syslog(LOG_USER|LOG_INFO,"monitor daemon terminated\n");
 
-	db_close();
+	lmplayer_database_close(dbobj);
 	exit(0);
 }
 
@@ -311,7 +314,8 @@ monitor_database_open()
 		return -1;
 	}
 
-	gint ret = db_open(dbfile);
+  printf("%s dbfile: %s\n", __func__, dbfile);
+	gint ret = lmplayer_database_open(dbobj, dbfile);
 
 	g_free(dbfile);
 	g_free(cfg);

@@ -12,7 +12,7 @@ INCLUDES = $(CFLAGS) -I$(top_builddir) -I$(top_srcdir)
 
 headers = \
 	search-library.h \
-	database.h \
+	lmplayer-database.h \
 	monitor.h \
 	pinyin.h \
 	small-search.h \
@@ -23,7 +23,7 @@ headers = \
 
 sources = \
 	search-library.c\
-	database.c\
+	lmplayer-database.c\
 	pinyin.c\
 	view.c\
 	small-search.c \

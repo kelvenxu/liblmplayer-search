@@ -48,13 +48,14 @@ do_traversal_path(const char *root)
 	{
 		gchar *fullpath = g_build_path(G_DIR_SEPARATOR_S, root, file, NULL);
 
-		FileInformation fileinfo;
+		//FileInformation fileinfo;
+		LmplayerDatabaseItem fileinfo;
 		fileinfo.name = file;
 		fileinfo.pinyin = utf8_to_pinyin(file);
 		fileinfo.location = fullpath;
 
 		//g_print("%s\n",file);
-		db_insert(&fileinfo);
+		//db_insert(&fileinfo);
 
 		if(g_file_test(fullpath, G_FILE_TEST_IS_DIR))
 		{

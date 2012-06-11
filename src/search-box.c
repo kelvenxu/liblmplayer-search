@@ -104,7 +104,8 @@ lmplayer_search_box_class_init(LmplayerSearchBoxClass *self_class)
 static int 
 query_callback(void *noused, int ncols, char** value, char** name)
 {
-	FileInformation fileinfo;
+	//FileInformation fileinfo;
+	LmplayerDatabaseItem fileinfo;
 
 	// 调用一次返回一行的查询结果
 	fileinfo.name = value[0];

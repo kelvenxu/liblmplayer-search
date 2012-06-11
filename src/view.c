@@ -44,7 +44,7 @@ search_view_clear()
 
 void
 //search_view_insert(GtkWidget *view, FileInformation *fileinfo)
-search_view_insert(FileInformation *fileinfo)
+search_view_insert(LmplayerDatabaseItem *fileinfo)
 {
 	static GtkListStore *liststore;
 	GtkTreeIter iter;

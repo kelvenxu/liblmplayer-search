@@ -5,7 +5,7 @@
 
 #define FILE_INFORMATION_N 7
 
-typedef struct _FileInformation
+typedef struct _LmplayerDatabaseItem
 {
 	gchar *name;
 	gchar *pinyin;
@@ -14,6 +14,6 @@ typedef struct _FileInformation
 	gchar *special;
 	gchar *rank;
 	gchar *location;
-} FileInformation;
+} LmplayerDatabaseItem;
 
 #endif /*__TYPE_H__ */

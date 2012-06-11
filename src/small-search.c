@@ -68,7 +68,8 @@ start_new_path()
 static void
 analysis_file(const char *file)
 {
-	FileInformation fileinfo;
+	//FileInformation fileinfo;
+	LmplayerDatabaseItem fileinfo;
 
 	if(file)
 	{
@@ -81,7 +82,7 @@ analysis_file(const char *file)
 		fileinfo.location = (char *)file;
 
 		printf("%s\n",file);
-		db_insert(&fileinfo);
+		//db_insert(&fileinfo);
 
 		g_free(fileinfo.name);
 		g_free(fileinfo.pinyin);
